@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>võrbel — Engineered for What Comes Next</title>
+  <meta name="description" content="võrbel is a global technology institution engineering foundational AI platforms, operating systems, and precision-crafted hardware built for multi-decade reliability and scale." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23121214'/%3E%3Cpath d='M20 17C24 12 29 12 33 15.5C37 19 41 19 45 14' stroke='%23C7C2B8' stroke-width='4.5' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='32' cy='38' r='13' stroke='%23EAEAEF' stroke-width='5.5' fill='none'/%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --bg-primary: #121214;
+      --bg-secondary: #1A1A1E;
+      --bg-glass: rgba(18, 18, 20, 0.80);
+      --text-primary: #EAEAEF;
+      --text-secondary: #A1A1A6;
+      --text-muted: #86868B;
+      --accent-titanium: #C7C2B8;
+      --border-hairline: rgba(234, 234, 239, 0.11);
+      --btn-bg: #EAEAEF;
+      --btn-text: #121214;
+      --card-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #FBFBFD;
+      --bg-secondary: #F5F5F7;
+      --bg-glass: rgba(251, 251, 253, 0.82);
+      --text-primary: #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-muted: #86868B;
+      --accent-titanium: #9C9486;
+      --border-hairline: rgba(29, 29, 31, 0.10);
+      --btn-bg: #1D1D1F;
+      --btn-text: #FBFBFD;
+      --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Inter, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      transition: background-color 0.35s ease, color 0.35s ease;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      background-color: var(--bg-glass);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .theme-btn {
+      background: transparent;
+      border: 1px solid var(--border-hairline);
+      color: var(--text-secondary);
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .theme-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--accent-titanium);
+    }
+
+    .hero {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 128px 24px 116px;
+      text-align: center;
+    }
+
+    .hero-wordmark {
+      margin: 0 auto 28px;
+      display: flex;
+      justify-content: center;
+    }
+
+    h1 {
+      font-size: clamp(40px, 6.5vw, 72px);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.06;
+      margin-bottom: 24px;
+    }
+
+    .hero-sub {
+      max-width: 640px;
+      margin: 0 auto 44px;
+      font-size: clamp(18px, 2.2vw, 22px);
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px 30px;
+      border-radius: 999px;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: 1px solid var(--border-hairline);
+      transition: border-color 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-titanium);
+    }
+
+    .manifesto-section {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 120px 24px;
+    }
+
+    .manifesto-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-titanium);
+      margin-bottom: 24px;
+    }
+
+    .manifesto-lead {
+      font-size: clamp(26px, 3.6vw, 40px);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .manifesto-body {
+      font-size: 18px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      display: grid;
+      gap: 22px;
+    }
+
+    .manifesto-signature {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-hairline);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .architecture-section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 120px 24px;
+    }
+
+    .section-header {
+      max-width: 640px;
+      margin-bottom: 64px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(32px, 4.2vw, 48px);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.12;
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 18px;
+      color: var(--text-secondary);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-hairline);
+      border-radius: 24px;
+      padding: 44px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-titanium);
+      box-shadow: var(--card-shadow);
+    }
+
+    .card-tag {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-titanium);
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 16px;
+      color
